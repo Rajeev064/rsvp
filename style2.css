@@ -11,6 +11,7 @@ body
     background-size: cover;
     background-repeat: no-repeat;
     backface-visibility: hidden;
+        height: 500px;
 }
 #login-box
 {
