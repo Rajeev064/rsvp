@@ -6,11 +6,13 @@ body
     color: #777;
     font-family: sans-serif;
     font-weight: 300;
-    background: url("bgpic.jpg");
+    background-image: url("bgpic.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     backface-visibility: hidden;
+    background-position: bottom;
     height: 100%;
+
 }
 #login-box
 {
