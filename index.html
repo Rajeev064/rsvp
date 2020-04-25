@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<head>
+  <title>Get services at your finger tips</title>
+  <meta charset="utf-8"> 
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <meta name="google-signin-client_id" content="194228086996-fuq06atoargpcqf2qpavcgpm9800j2m6.apps.googleusercontent.com">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> 
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
+  <link rel="icon" type="image/icon" href="icon.jpg" alt="Logo">   
+    <link rel="stylesheet" type="text/css" href="style2.css">
+    <script>
+
+      function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
+        console.log('statusChangeCallback');
+        console.log(response);                   // The current login status of the person.
+        if (response.status === 'connected') {   // Logged into your webpage and Facebook.
+          testAPI();  
+        }
+      }
+    
+    
+      function checkLoginState() {               // Called when a person is finished with the Login Button.
+        FB.getLoginStatus(function(response) {   // See the onlogin handler
+          statusChangeCallback(response);
+        });
+      }
+    
+    
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '3440420252639805',
+          cookie     : true,                     // Enable cookies to allow the server to access the session.
+          xfbml      : true,                     // Parse social plugins on this webpage.
+          version    : 'v2.8'           // Use this Graph API version for this call.
+        });
+    
+    
+        FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
+          statusChangeCallback(response);        // Returns the login status.
+        });
+      };
+    
+      
+      (function(d, s, id) {                      // Load the SDK asynchronously
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    
+     
+      function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+        console.log('Welcome!  Fetching your information.... ');
+        FB.api('/me', function(response) {
+          console.log('Successful login for: ' + response.name);
+          document.getElementById('status').innerHTML =
+            'Thanks for logging in, ' + response.name + '!';
+            alert("Signed in as,  "+response.name+"!");
+        });
+      }
+    
+    </script>
+    
+</head>
+<body>
+  <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v6.0&appId=3440420252639805&autoLogAppEvents=1"></script>
+<div class="contactForm">
+    <div id="login-box">
+      <div class="left-box">
+        <h1> Sign Up</h1>
+          
+          <input type="text" name="username" placeholder="Username" id="Username"/>
+          <input type="text" name="email" placeholder="Email" id="email"/>
+          <input type="password" name="password" placeholder="Password" id="password"/>
+        
+          <input type="password" name="password2" placeholder="Retype password"/>
+        <button style="background: #f44336 !important"><a href="main.html" onclick="signUp()" type="submit" class="btn" id="signUp">Sign Up</a></button>
+        </div>
+       <div class="right-box">
+          <span class="signinwith">Sign in with<br/>Social Network     </span> 
+        <!-- <button class="social facebook" style="padding-left: 20px; " onclick="checkLoginState()">Log in with Facebook</button> --> 
+        <button class="social google" style="padding-left: 20px;"><b><i class="fab fa-google-plus-g" aria-hidden="true"></i>   Log in with Google+ </b></button>
+        <div class="fb-login-button" data-width="" data-size="medium" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false">
+        </div>
+      <!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+        </fb:login-button>-->
+        <div id="status">
+        </div>
+                   
+        
+        </div>
+        <div class="or">OR</div>
+    </div>
+   </div>
+   <div style="text-align: center;background-color: #000; background-size: auto; width:100%; bottom: 0;position: fixed; height:135px;">
+    <h3 style="opacity: 1;">Connect us on:</h3>
+   <div class="footer" id="last" style="text-align: center;background-color: #000;margin-top: -50px; background-size: auto;  bottom:0; width:100%;  height:135px;"> 
+    <ul class="social">
+      <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li> 
+      <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li> 
+      <li><a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+      <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li> 
+  </ul>
+    <br> 
+  </div>
+</div>
+   <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-database.js"></script>
+   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159320631-1"></script>
+   <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+   
+     gtag('config', 'UA-159320631-1');
+   </script>
+   <script src="main.js"></script>
+</body>    
+</html>
